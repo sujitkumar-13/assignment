@@ -1,0 +1,205 @@
+.certificate {
+  padding: 20px 40px;
+}
+
+.topContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+header small {
+  font-size: 15px;
+  color: #57667c;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th {
+  font-size: 15px;
+  color: #6b7280;
+  font-weight: 500;
+  border-bottom: 2px solid #e5e7eb;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  font-size: 15px;
+  color: #374151;
+  padding: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 19px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.status.active {
+  background: #dcfce7;
+  color: #16a34a;
+  border: 1px solid #16a34a;
+}
+
+.status.expiring {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #b45309;
+}
+
+.status.expired {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.page-info{
+  background-color:  #e5e7eb;
+  padding: 8px 14px;
+    border-radius: 10px;
+
+}
+
+.btn:disabled {
+  background-color: #9ca3af;
+  transform: none;
+  cursor: text;
+}
+
+.btn:disabled:hover {
+  background-color: #9ca3af;
+  transform: none;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn span {
+  font-size: 20px;
+}
+
+.btn p {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.03);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(0.5px);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px 34px;
+  border-radius: 14px;
+  width: 420px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  background: rgb(69, 69, 248);
+}
+
+button[type="submit"]:hover{
+  background-color: blue;
+}

@@ -1,0 +1,64 @@
+.sidebar {
+    width: 280px;
+    height: 100vh;
+    background-color: #0b1330;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding:18px 10px;
+}
+
+.icon{
+    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: blue;
+}
+
+lucide-icon{
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    gap: 10px;
+    padding: 0 0 15px 10px;
+}
+
+
+.logo h3 {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+small {
+  font-size: 14px;
+  color: #6f86a7;
+}
+
+nav {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #8fa5c0;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav a:hover {
+  background-color: rgb(17, 38, 59);
+}
+

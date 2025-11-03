@@ -1,0 +1,81 @@
+<div class="certificate">
+  <div class="topContent">
+    <header>
+      <p class="title">Certificates</p>
+      <small>Manage your digital certificates</small>
+    </header>
+    <button class="btn" (click)="openForm()">
+      <span>+</span>
+      <p>Add Certificate</p>
+    </button>
+  </div>
+
+  <div class="card">
+    <h2 class="card-title">All Certificates</h2>
+
+    <div *ngIf="loading" class="loading">Loading certificates...</div>
+
+    <table *ngIf="!loading && certificates.length > 0">
+      <thead>
+        <tr>
+          <th>Certificate Name</th>
+          <th>Issuer</th>
+          <th>Valid From</th>
+          <th>Valid To</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cert of paginatedCertificates">
+          <td>{{ cert.certificateName }}</td>
+          <td>{{ cert.issuerName }}</td>
+          <td>{{ cert.validFrom | date: 'dd/MM/yyyy, HH:mm' }}</td>
+          <td>{{ cert.validTo | date: 'dd/MM/yyyy, HH:mm' }}</td>
+          <td>
+            <span class="status" [ngClass]="{
+              'active': cert.status === 'ACTIVE',
+              'expired': cert.status === 'EXPIRED',
+              'expiring': cert.status === 'EXPIRING SOON'
+            }">
+              {{ cert.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pagination" *ngIf="!loading && totalPages > 1">
+      <button class="btn" (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+      <span class="page-info">Page {{ currentPage }}</span>
+      <button class="btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+
+
+    <div *ngIf="!loading && certificates.length === 0" class="no-data">
+      No certificates available. Add one using the button above.
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.active]="showForm" (click)="onBackgroundClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closeForm()">×</span>
+    <h3>Add Certificate</h3>
+
+    <form (ngSubmit)="createCertificate()" #certificateForm="ngForm">
+      <label>Certificate Name:</label>
+      <input type="text" name="certificateName" [(ngModel)]="certificate.certificateName" required />
+
+      <label>Issuer Name:</label>
+      <input type="text" name="issuerName" [(ngModel)]="certificate.issuerName" required />
+
+      <label>Valid From:</label>
+      <input type="datetime-local" name="validFrom" [(ngModel)]="certificate.validFrom" readonly />
+
+      <label>Valid To:</label>
+      <input type="datetime-local" name="validTo" [(ngModel)]="certificate.validTo" readonly />
+
+      <button type="submit">Create Certificate</button>
+    </form>
+  </div>
+</div>

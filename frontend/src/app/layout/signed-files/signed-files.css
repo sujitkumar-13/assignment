@@ -1,0 +1,63 @@
+.signed-file{
+    padding: 20px 40px;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  margin-bottom:30px;
+}
+
+.card {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th {
+  font-size: 16px;
+  color: #57667c;
+  font-weight: 400;
+}
+
+td {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.status.active {
+  background: #dcfce7;
+  color: #16a34a;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.download {
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: none;
+}
+
+.download:hover {
+  background-color: #6cdfd1;
+}

@@ -1,0 +1,19 @@
+.topbar {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+lucide-icon{
+    display: flex;
+}

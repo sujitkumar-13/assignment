@@ -1,0 +1,61 @@
+.card {
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 0;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-title {
+  font-weight: 500;
+}
+
+.activity-sub {
+  color: #6b7280;
+  font-size: 0.875rem;
+  margin-top: 2px;
+}
+
+.activity-meta {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.activity-time {
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.status {
+  margin-top: 4px;
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 19px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid #16a34a;
+}
+
+.status.success {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
