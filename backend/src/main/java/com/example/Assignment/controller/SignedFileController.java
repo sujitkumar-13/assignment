@@ -24,6 +24,7 @@ public class SignedFileController {
         return service.signFile(fileName, certificateName);
     }
 
+
     @GetMapping
     public List<SignedFile> getAll() {
         return service.getAllSignedFiles();

@@ -5,8 +5,23 @@
   </header>
 
   <div class="card">
-    <h2 class="card-title">All Signed File</h2>
-    <table>
+    <div class="card-main">
+      <h2 class="card-title">All Signed Files</h2>
+
+      <div class="inputBox">
+        <lucide-icon name="Search" size="20"></lucide-icon>
+        <input
+          type="text"
+          placeholder="Search File or Certificate..."
+          [(ngModel)]="searchTerm"
+          (input)="filterFiles()"
+        />
+      </div>
+    </div>
+
+    <div *ngIf="loading" class="loading">Loading signed files...</div>
+
+    <table *ngIf="!loading && filteredFiles.length > 0">
       <thead>
         <tr>
           <th>File Name</th>
@@ -18,23 +33,33 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>app-v2.1.0.exe</td>
-          <td>Code Signing Certificate</td>
-          <td>10/30/2024</td>
-          <td>2:30 PM</td>
-          <td><span class="status active">SIGNED</span></td>
-          <td><button href="#" class="download">Download</button></td>
-        </tr>
-        <tr>
-          <td>installer.msi</td>
-          <td>Production SSL Certificate</td>
-          <td>10/29/2024</td>
-          <td>10:15 AM</td>
-          <td><span class="status active">SIGNED</span></td>
-          <td><button href="#" class="download">Download</button></td>
+        <tr *ngFor="let file of filteredFiles">
+          <td>{{ file.fileName }}</td>
+          <td>{{ file.certificateName }}</td>
+          <td>{{ file.signedDate | date: 'dd/MM/yyyy' }}</td>
+          <td>{{ file.signedDate | date: 'shortTime' }}</td>
+          <td>
+            <span
+              class="status"
+              [ngClass]="{
+                active: file.status === 'SIGNED',
+                failed: file.status === 'FAILED'
+              }"
+            >
+              {{ file.status }}
+            </span>
+          </td>
+          <td>
+            <button class="download" (click)="downloadFile(file)">
+              Download
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    <div *ngIf="!loading && filteredFiles.length === 0" class="no-data">
+      No signed files found.
+    </div>
   </div>
 </div>
