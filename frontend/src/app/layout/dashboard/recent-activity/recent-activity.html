@@ -1,47 +1,19 @@
 <div class="card recent-activity">
-    <h2 class="card-title">Recent Activity</h2>
+  <h2 class="card-title">Recent Activity</h2>
 
-    <div class="activity-item">
-        <div>
-            <p class="activity-title">Certificate created</p>
-            <p class="activity-sub">Production SSL Cert</p>
-        </div>
-        <div class="activity-meta">
-            <span class="activity-time">2 hours ago</span>
-            <span class="status success">Success</span>
-        </div>
-    </div>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="!loading && activities.length === 0">No recent activity yet.</div>
 
-    <div class="activity-item">
-        <div>
-            <p class="activity-title">File signed</p>
-            <p class="activity-sub">app-v2.1.0.exe</p>
-        </div>
-        <div class="activity-meta">
-            <span class="activity-time">3 hours ago</span>
-            <span class="status success">Success</span>
-        </div>
+  <ng-container *ngIf="!loading && activities.length > 0">
+    <div class="activity-item" *ngFor="let activity of activities">
+      <div>
+        <p class="activity-title">{{ activity.type }}</p>
+        <p class="activity-sub">{{ activity.name }}</p>
+      </div>
+      <div class="activity-meta">
+        <span class="activity-time">{{ getTimeAgo(activity.timestamp) }}</span>
+        <span class="status success">{{ activity.status }}</span>
+      </div>
     </div>
-
-    <div class="activity-item">
-        <div>
-            <p class="activity-title">Certificate created</p>
-            <p class="activity-sub">Development Code Signing</p>
-        </div>
-        <div class="activity-meta">
-            <span class="activity-time">5 hours ago</span>
-            <span class="status success">Success</span>
-        </div>
-    </div>
-
-    <div class="activity-item">
-        <div>
-            <p class="activity-title">File signed</p>
-            <p class="activity-sub">installer.msi</p>
-        </div>
-        <div class="activity-meta">
-            <span class="activity-time">1 day ago</span>
-            <span class="status success">Success</span>
-        </div>
-    </div>
+  </ng-container>
 </div>
