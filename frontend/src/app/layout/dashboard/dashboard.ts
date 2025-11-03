@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CertificateService } from '../../services/certificate.service';
 import { SignedFileService } from '../../services/signed-file.service';
 import { RecentActivity } from '../dashboard/recent-activity/recent-activity';
-import { CertficateExpiry } from './certficate-expiry/certficate-expiry';
+import { CertificateExpiry } from './certficate-expiry/certficate-expiry';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RecentActivity, CertficateExpiry],
+  imports: [CommonModule, RecentActivity, CertificateExpiry],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']
 })

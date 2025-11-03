@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CertificateExpiry } from './certficate-expiry';
 
-import { CertficateExpiry } from './certficate-expiry';
+// import { CertficateEx/piry } from './certficate-expiry';
 
-describe('CertficateExpiry', () => {
-  let component: CertficateExpiry;
-  let fixture: ComponentFixture<CertficateExpiry>;
+describe('CertificateExpiry', () => {
+  let component: CertificateExpiry;
+  let fixture: ComponentFixture<CertificateExpiry>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CertficateExpiry]
+      imports: [CertificateExpiry]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CertficateExpiry);
+    fixture = TestBed.createComponent(CertificateExpiry);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
