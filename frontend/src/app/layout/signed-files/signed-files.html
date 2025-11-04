@@ -22,41 +22,41 @@
     <div *ngIf="loading" class="loading">Loading signed files...</div>
 
     <table *ngIf="!loading && filteredFiles.length > 0">
-      <thead>
-        <tr>
-          <th>File Name</th>
-          <th>Certificate Used</th>
-          <th>Signed Date</th>
-          <th>Signed Time</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let file of filteredFiles">
-          <td>{{ file.fileName }}</td>
-          <td>{{ file.certificateName }}</td>
-          <td>{{ file.signedDate | date: 'dd/MM/yyyy' }}</td>
-          <td>{{ file.signedDate | date: 'shortTime' }}</td>
-          <td>
-            <span
-              class="status"
-              [ngClass]="{
-                active: file.status === 'SIGNED',
-                failed: file.status === 'FAILED'
-              }"
-            >
-              {{ file.status }}
-            </span>
-          </td>
-          <td>
-            <button class="download" (click)="downloadFile(file)">
-              Download
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <thead>
+    <tr>
+      <th>File Name</th>
+      <th>Certificate Used</th>
+      <th>Signed Date</th>
+      <th>Signed Time</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let file of filteredFiles">
+      <td>{{ file.fileName }}</td>
+      <td>{{ file.certificateUsed }}</td>
+      <td>{{ file.signedAt | date: 'dd/MM/yyyy' }}</td>
+      <td>{{ file.signedAt | date: 'shortTime' }}</td>
+      <td>
+        <span
+          class="status"
+          [ngClass]="{
+            active: file.status === 'SIGNED',
+            failed: file.status === 'FAILED'
+          }"
+        >
+          {{ file.status }}
+        </span>
+      </td>
+      <td>
+        <button class="download" (click)="downloadFile(file)">
+          Download
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
     <div *ngIf="!loading && filteredFiles.length === 0" class="no-data">
       No signed files found.

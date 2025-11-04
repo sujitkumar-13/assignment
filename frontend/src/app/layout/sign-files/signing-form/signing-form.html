@@ -10,35 +10,34 @@
 
     <p class="subtitle">Select a file and certificate to create a digitally signed file</p>
 
-    <form>
-        <div class="form-group">
-            <label for="file">Select File</label>
-            <input type="file" id="file" />
+    <form (ngSubmit)="signFile()" #signForm="ngForm">
+  <div class="form-group">
+    <label for="file">Select File</label>
+    <input type="file" id="file" (change)="onFileSelect($event)" required />
+  </div>
+
+  <div class="custom-select" [class.active]="dropdownOpen">
+    <div class="selected" (click)="toggleDropdown($event)">
+      {{ selectedCertificate || 'Choose a certificate' }}
+    </div>
+
+    <div class="options" *ngIf="dropdownOpen">
+      <div
+        class="option"
+        *ngFor="let cert of certificates"
+        (click)="selectCertificate(cert.certificateName, $event)"
+      >
+        <div class="icon">
+          <lucide-icon name="Shield" [size]="16" color="green"></lucide-icon>
         </div>
+        <div class="text">{{ cert.certificateName }}</div>
+      </div>
+    </div>
+  </div>
 
-        <div class="custom-select">
-            <div class="selected">Choose a certificate</div>
-            <div class="options">
-                <div class="option">
-                    <div class="icon">
-                        <lucide-icon name="Shield" [size]="16" color="green"></lucide-icon>
-                    </div>
-                    <div class="text">
-                        Production SSL
-                    </div>
-                </div>
+  <button type="submit" class="btn-primary" [disabled]="!selectedFile || !selectedCertificate">
+    Sign File
+  </button>
+</form>
 
-                <div class="option">
-                    <div class="icon">
-                        <lucide-icon name="Shield" [size]="16" class="shieldIcon"></lucide-icon>
-                    </div>
-                    <div class="text">
-                        Development Signing
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <button type="button" class="btn-primary">Sign File</button>
-    </form>
 </div>

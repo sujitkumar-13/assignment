@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';  // ✅ Add this
+import { FormsModule } from '@angular/forms';  
 import { SignedFileService } from '../../services/signed-file.service';
 import { LucideAngularModule } from 'lucide-angular';
 
@@ -42,14 +42,14 @@ export class SignedFiles implements OnInit {
     });
   }
 
-  filterFiles() {
-    const term = this.searchTerm.toLowerCase();
+ filterFiles() {
+  const term = this.searchTerm.toLowerCase();
 
-    this.filteredFiles = this.signedFiles.filter((file) =>
-      file.fileName.toLowerCase().includes(term) ||
-      file.certificateName.toLowerCase().includes(term)
-    );
-  }
+  this.filteredFiles = this.signedFiles.filter((file) =>
+    file.fileName.toLowerCase().includes(term) ||
+    file.certificateUsed.toLowerCase().includes(term)
+  );
+}
 
   downloadFile(file: any) {
     if (!file.downloadUrl) {
